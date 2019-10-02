@@ -1,0 +1,43 @@
+<app-headercomp></app-headercomp>
+<p>
+  mycomp works!
+</p>
+<div *ngIf="users.length>0;then show1 else noshow1"></div>
+<ng-template #show1>
+    <ul>
+    <li *ngFor="let ud of users">
+        {{ud}}
+    </li>
+</ul>
+</ng-template>
+<ng-template #noshow1>
+    No users found
+</ng-template>
+<div *ngIf="depts.length>0; then showdepts else noshowdepts"></div>
+<ng-template #showdepts>
+<ul>
+    <li *ngFor="let d of depts">
+        {{d}}
+    </li>
+</ul>
+</ng-template>
+<ng-template #noshowdepts>No depts found</ng-template>
+<ul>
+    <li *ngFor="let p of projects">
+        {{p}}
+    </li>
+</ul>
+My City: <input type="text" [(ngModel)]="mycity" class="form-control"/>
+{{mycity}}
+profile: <img [src]="profilepic"/>
+<button (click)="callme()" class="btn btn-success">Call</button>
+<br>
+<app-favcomp [isFavorite]='myFavorite'></app-favcomp>
+<app-likecomp [totalLikes]='tLikes'></app-likecomp>
+<app-footercomp></app-footercomp>
+<div *ngIf="shoppingList.length>0; then show else noshow"></div>
+<ng-template #show>items in your cart</ng-template>
+<ng-template #noshow>no items found</ng-template>
+<input type="text" [(ngModel)]='imgsrc'/>
+<img [src]='imgsrc'/>
+<app-pipedemo></app-pipedemo>
